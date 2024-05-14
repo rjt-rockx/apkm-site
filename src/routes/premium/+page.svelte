@@ -309,8 +309,8 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 					<Accordion.Header class="h-fit w-full">
 						<Accordion.Trigger class="group flex w-full flex-row items-center gap-2 p-6">
 							<ChevronRight
-								class="size-5 text-orange-500 transition-transform group-data-[state=open]:rotate-90" />
-							<span class="font-semibold text-gray-900">{question.question}</span>
+								class="size-6 shrink-0 text-orange-500 transition-transform group-data-[state=open]:rotate-90" />
+							<p class="grow text-left font-semibold text-gray-900">{question.question}</p>
 						</Accordion.Trigger>
 					</Accordion.Header>
 					<Accordion.Content
