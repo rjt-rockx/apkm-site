@@ -159,12 +159,12 @@
 	<div class="mt-2 flex w-full flex-row items-center justify-center px-4">
 		<h2 class="font-bold uppercase tracking-wider text-gray-500">Premium Perks</h2>
 	</div>
-	<section class="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+	<section class="grid grid-cols-1 gap-4 md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3">
 		{#each perks as perk}
 			<div
 				class={twMerge(
 					'grid grid-cols-1 items-start justify-between gap-6 rounded bg-white p-6 shadow',
-					perk.image && 'col-span-2 grid-cols-2'
+					perk.image && 'md:col-span-2 md:grid-cols-2'
 				)}>
 				{#if perk.image}
 					<img
@@ -192,7 +192,7 @@
 	<div class="mt-2 flex w-full flex-row items-center justify-center px-4">
 		<h2 class="font-bold uppercase tracking-wider text-gray-500">Statistics</h2>
 	</div>
-	<section class="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+	<section class="grid grid-cols-1 gap-4 md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3">
 		{#each stats as stat}
 			<div class="flex flex-col items-center gap-2 rounded bg-white p-6 shadow">
 				<span class="inline-flex gap-2 text-3xl font-bold tracking-wide text-gray-900">
@@ -214,12 +214,12 @@
 			Your contributions made these possible
 		</h2>
 	</div>
-	<section class="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+	<section class="grid grid-cols-1 gap-4 md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3">
 		{#each features as feature}
 			<div
 				class={twMerge(
 					'flex flex-col items-center gap-2 rounded bg-white p-6 shadow',
-					feature.wide && 'col-span-2'
+					feature.wide && 'md:col-span-2'
 				)}>
 				<div class="flex flex-col items-start gap-4">
 					{#if feature.icon}
