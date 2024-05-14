@@ -19,6 +19,9 @@
 	import { Accordion } from 'bits-ui'
 	import { slide } from 'svelte/transition'
 
+	import LightThemeImage from '../assets/light_theme.png?enhanced'
+	import DarkThemeImage from '../assets/dark_theme.png?enhanced'
+
 	const plans = [
 		{
 			id: 'yearly',
@@ -40,7 +43,7 @@
 			title: 'Ad-free experience',
 			description:
 				'Use APKMirror without any ads, ensuring a clean, distraction-free experience as you download your APKs.',
-			image: 'https://downloadr2.apkmirror.com/wp-content/uploads/2023/02/xJ8lqP11-1024x764.png',
+			image: LightThemeImage,
 			alignment: 'left'
 		},
 		{
@@ -57,7 +60,7 @@
 			icon: Sunglasses,
 			title: 'Dark theme',
 			description: 'Explore APKMirror in the dark for a more comfortable browsing experience.',
-			image: 'https://downloadr2.apkmirror.com/wp-content/uploads/2023/02/wWec78O1-1024x757.png',
+			image: DarkThemeImage,
 			alignment: 'right'
 		}
 	]
@@ -191,12 +194,12 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 <article class="flex h-fit w-full flex-col gap-4 p-4">
 	<section class="flex flex-col items-center gap-4 rounded bg-orange-500 p-8 text-white shadow">
 		<h1 class="text-3xl font-black">APKMirror Premium</h1>
-		<p class="font-sem text-balance text-center text-base text-opacity-80">
+		<p class="w-full text-balance text-center text-base font-semibold text-opacity-80 md:w-auto">
 			Support APKMirror, get an ad-free experience and save clicks with our premium plan.
 			<br />
 			Pay yearly for 30% off. Cancel anytime.
 		</p>
-		<div class="flex flex-row items-center gap-4">
+		<div class="flex flex-col items-center gap-4 md:flex-row">
 			<button
 				class="flex flex-row items-center gap-2 rounded-md bg-white px-4 py-2 font-semibold text-gray-900 active:translate-y-px">
 				<span>Subscribe for ${plans.find((plan) => plan.id === currentPlan)?.price}</span>
@@ -219,7 +222,9 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 		</div>
 	</section>
 	<div class="mt-2 flex w-full flex-row items-center justify-center px-4">
-		<h2 class="font-bold uppercase tracking-wider text-gray-500">Premium Perks</h2>
+		<h2 class="text-balance text-center font-bold uppercase tracking-wider text-gray-500">
+			Premium Perks
+		</h2>
 	</div>
 	<section class="grid grid-cols-1 gap-4 md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3">
 		{#each perks as perk}
@@ -229,11 +234,11 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 					perk.image && 'md:col-span-2 md:grid-cols-2'
 				)}>
 				{#if perk.image}
-					<img
+					<enhanced:img
 						src={perk.image}
 						alt={perk.title}
 						class={twMerge(
-							'aspect-video w-full rounded',
+							'aspect-video w-full rounded object-cover',
 							perk.alignment === 'right' && 'order-1'
 						)} />
 				{/if}
@@ -244,7 +249,7 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 						</div>
 					{/if}
 					<div class="flex flex-col items-start gap-0">
-						<h2 class="font-semibold text-gray-900">{perk.title}</h2>
+						<h3 class="font-semibold text-gray-900">{perk.title}</h3>
 						<p class="text-gray-900 text-opacity-80">{perk.description}</p>
 					</div>
 				</div>
@@ -252,7 +257,7 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 		{/each}
 	</section>
 	<div class="mt-2 flex w-full flex-row items-center justify-center px-4">
-		<h2 class="font-bold uppercase tracking-wider text-gray-500">Statistics</h2>
+		<h2 class="text-center font-bold uppercase tracking-wider text-gray-500">Statistics</h2>
 	</div>
 	<section class="grid grid-cols-1 gap-4 md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3">
 		{#each stats as stat}
@@ -272,7 +277,7 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 		{/each}
 	</section>
 	<div class="mt-2 flex w-full flex-row items-center justify-center px-4">
-		<h2 class="font-bold uppercase tracking-wider text-gray-500">
+		<h2 class="text-balance text-center font-bold uppercase tracking-wider text-gray-500">
 			Your contributions made these possible
 		</h2>
 	</div>
@@ -298,7 +303,9 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 		{/each}
 	</section>
 	<div class="mt-2 flex w-full flex-row items-center justify-center px-4">
-		<h2 class="font-bold uppercase tracking-wider text-gray-500">Frequently Asked Questions</h2>
+		<h2 class="text-balance text-center font-bold uppercase tracking-wider text-gray-500">
+			Frequently Asked Questions
+		</h2>
 	</div>
 	<section class="flex w-full flex-col items-start gap-4">
 		<Accordion.Root
