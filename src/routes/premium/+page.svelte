@@ -301,13 +301,13 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 		<h2 class="font-bold uppercase tracking-wider text-gray-500">Frequently Asked Questions</h2>
 	</div>
 	<section class="flex w-full flex-col items-start gap-4">
-		<Accordion.Root multiple class="flex h-fit w-full flex-col items-start gap-4">
+		<Accordion.Root
+			multiple
+			class="flex h-fit w-full flex-col items-start gap-0 divide-y divide-gray-200 rounded bg-white shadow transition-all">
 			{#each questions as question, index}
-				<Accordion.Item
-					value={`${index}`}
-					class="flex h-fit w-full flex-col rounded bg-white shadow transition-all">
+				<Accordion.Item value={`${index}`} class="flex h-fit w-full flex-col">
 					<Accordion.Header class="h-fit w-full">
-						<Accordion.Trigger class="group flex w-full flex-row items-center gap-2 p-4">
+						<Accordion.Trigger class="group flex w-full flex-row items-center gap-2 p-6">
 							<ChevronRight
 								class="size-5 text-orange-500 transition-transform group-data-[state=open]:rotate-90" />
 							<span class="font-semibold text-gray-900">{question.question}</span>
@@ -315,7 +315,7 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 					</Accordion.Header>
 					<Accordion.Content
 						transition={(node) => slide(node, { duration: 150 })}
-						class="px-4 pb-4">
+						class="px-6 pb-6">
 						<p class="text-gray-900 text-opacity-80">{question.answer}</p>
 					</Accordion.Content>
 				</Accordion.Item>
