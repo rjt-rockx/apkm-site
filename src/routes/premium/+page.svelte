@@ -193,7 +193,7 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 
 <article class="flex h-fit w-full flex-col gap-4 p-4">
 	<section class="flex flex-col items-center gap-4 rounded bg-orange-500 p-8 text-white shadow">
-		<h1 class="text-3xl font-black">APKMirror Premium</h1>
+		<h1 class="text-center text-3xl font-black">APKMirror Premium</h1>
 		<p class="w-full text-balance text-center text-base font-semibold text-opacity-80 md:w-auto">
 			Support APKMirror, get an ad-free experience and save clicks with our premium plan.
 			<br />
