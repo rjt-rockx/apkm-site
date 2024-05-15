@@ -26,9 +26,55 @@
 			<a href="/premium" class="text-lg font-normal">Premium</a>
 		</nav>
 	</div>
-	<main class="grow bg-gray-100">
+	<main class="grow">
 		<div class="mx-auto max-w-screen-xl">
 			<slot></slot>
 		</div>
 	</main>
+	<div id="background" inert></div>
 </div>
+
+<style>
+	#background {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		z-index: -100;
+	}
+
+	#background::before {
+		content: '';
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: theme('colors.gray.100');
+		background-image: url('$lib/assets/iconshapes.svg');
+		background-repeat: repeat;
+		background-size: 48px;
+		transform: rotate(-15deg) scale(3);
+		z-index: -101;
+	}
+
+	#background::after {
+		content: '';
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(
+			to right,
+			transparent 0%,
+			10%,
+			theme('colors.gray.100') 50%,
+			90%,
+			transparent 100%
+		);
+		z-index: -99;
+	}
+</style>

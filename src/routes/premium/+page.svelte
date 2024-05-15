@@ -19,8 +19,8 @@
 	import { Accordion } from 'bits-ui'
 	import { slide } from 'svelte/transition'
 
-	import LightThemeImage from '../assets/light_theme.png?enhanced'
-	import DarkThemeImage from '../assets/dark_theme.png?enhanced'
+	import LightThemeImage from '$lib/assets/light_theme.png?enhanced'
+	import DarkThemeImage from '$lib/assets/dark_theme.png?enhanced'
 
 	const plans = [
 		{
