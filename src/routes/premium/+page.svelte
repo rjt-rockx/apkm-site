@@ -1,26 +1,28 @@
 <script lang="ts">
-	import { twMerge } from 'tailwind-merge'
-	import ArrowRight from '~icons/mdi/arrow-right'
-	import AdvertisementsOff from '~icons/mdi/advertisements-off'
-	import CursorDefaultClick from '~icons/mdi/cursor-default-click'
-	import Handshake from '~icons/mdi/handshake'
-	import Sunglasses from '~icons/mdi/sunglasses'
-	import Android from '~icons/simple-icons/android'
-	import Download from '~icons/mdi/download'
-	import Upload from '~icons/mdi/upload'
-	import Harddisk from '~icons/mdi/harddisk'
-	import SwapHorizontal from '~icons/mdi/swap-horizontal'
-	import Save from '~icons/mdi/content-save'
-	import PackageDown from '~icons/mdi/package-down'
-	import MicroSD from '~icons/mdi/micro-sd'
-	import Database from '~icons/mdi/database'
-	import Lock from '~icons/mdi/lock'
-	import ChevronRight from '~icons/mdi/chevron-right'
 	import { Accordion } from 'bits-ui'
 	import { slide } from 'svelte/transition'
+	import { twMerge } from 'tailwind-merge'
 
-	import LightThemeImage from '$lib/assets/light_theme.png?enhanced'
+	import AdvertisementsOff from '~icons/mdi/advertisements-off'
+	import ArrowRight from '~icons/mdi/arrow-right'
+	import ChevronRight from '~icons/mdi/chevron-right'
+	import Save from '~icons/mdi/content-save'
+	import CursorDefaultClick from '~icons/mdi/cursor-default-click'
+	import Database from '~icons/mdi/database'
+	import Download from '~icons/mdi/download'
+	import Handshake from '~icons/mdi/handshake'
+	import Harddisk from '~icons/mdi/harddisk'
+	import Lock from '~icons/mdi/lock'
+	import MicroSD from '~icons/mdi/micro-sd'
+	import PackageDown from '~icons/mdi/package-down'
+	import Sunglasses from '~icons/mdi/sunglasses'
+	import SwapHorizontal from '~icons/mdi/swap-horizontal'
+	import Upload from '~icons/mdi/upload'
+	import Android from '~icons/simple-icons/android'
 	import DarkThemeImage from '$lib/assets/dark_theme.png?enhanced'
+	import LightThemeImage from '$lib/assets/light_theme.png?enhanced'
+	import Card from '$lib/components/Card.svelte'
+	import SectionTitle from '$lib/components/SectionTitle.svelte'
 
 	const plans = [
 		{
@@ -221,16 +223,12 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 			</div>
 		</div>
 	</section>
-	<div class="mt-2 flex w-full flex-row items-center justify-center px-4">
-		<h2 class="text-balance text-center font-bold uppercase tracking-wider text-gray-500">
-			Premium Perks
-		</h2>
-	</div>
+	<SectionTitle title="Premium Perks" />
 	<section class="grid grid-cols-1 gap-4 md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3">
 		{#each perks as perk}
-			<div
+			<Card
 				class={twMerge(
-					'grid grid-cols-1 items-start justify-between gap-6 rounded bg-white p-6 shadow',
+					'grid grid-cols-1 items-start justify-between gap-6',
 					perk.image && 'md:col-span-2 md:grid-cols-2'
 				)}>
 				{#if perk.image}
@@ -253,15 +251,13 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 						<p class="text-gray-900 text-opacity-80">{perk.description}</p>
 					</div>
 				</div>
-			</div>
+			</Card>
 		{/each}
 	</section>
-	<div class="mt-2 flex w-full flex-row items-center justify-center px-4">
-		<h2 class="text-center font-bold uppercase tracking-wider text-gray-500">Statistics</h2>
-	</div>
+	<SectionTitle title="Statistics" />
 	<section class="grid grid-cols-1 gap-4 md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3">
 		{#each stats as stat}
-			<div class="flex flex-col items-center gap-2 rounded bg-white p-6 shadow">
+			<Card class="flex flex-col items-center gap-2">
 				<span class="inline-flex gap-2 text-3xl font-bold tracking-wide text-gray-900">
 					<span>
 						{stat.value}
@@ -273,21 +269,13 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 						{stat.title}
 					</span>
 				</p>
-			</div>
+			</Card>
 		{/each}
 	</section>
-	<div class="mt-2 flex w-full flex-row items-center justify-center px-4">
-		<h2 class="text-balance text-center font-bold uppercase tracking-wider text-gray-500">
-			Your contributions made these possible
-		</h2>
-	</div>
+	<SectionTitle title="Your contributions made these possible" />
 	<section class="grid grid-cols-1 gap-4 md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3">
 		{#each features as feature}
-			<div
-				class={twMerge(
-					'flex flex-col items-center gap-2 rounded bg-white p-6 shadow',
-					feature.wide && 'md:col-span-2'
-				)}>
+			<Card class={twMerge('flex flex-col items-center gap-2', feature.wide && 'md:col-span-2')}>
 				<div class="flex flex-col items-start gap-4">
 					{#if feature.icon}
 						<div class="grid size-12 place-items-center rounded-full bg-orange-100 text-orange-600">
@@ -299,14 +287,10 @@ Keep in mind that you’re purchasing a one-time gift for the selected term (e.g
 						<p class="text-gray-900 text-opacity-80">{feature.description}</p>
 					</div>
 				</div>
-			</div>
+			</Card>
 		{/each}
 	</section>
-	<div class="mt-2 flex w-full flex-row items-center justify-center px-4">
-		<h2 class="text-balance text-center font-bold uppercase tracking-wider text-gray-500">
-			Frequently Asked Questions
-		</h2>
-	</div>
+	<SectionTitle title="Frequently Asked Questions" />
 	<section class="flex w-full flex-col items-start gap-4">
 		<Accordion.Root
 			multiple

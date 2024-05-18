@@ -27,5 +27,9 @@ module.exports = {
 				parser: '@typescript-eslint/parser'
 			}
 		}
-	]
+	],
+	rules: {
+		'simple-import-sort/imports': 'warn',
+		'simple-import-sort/exports': 'warn'
+	}
 }

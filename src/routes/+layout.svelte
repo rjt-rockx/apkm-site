@@ -2,6 +2,7 @@
 	import '../app.css'
 	import '@fontsource-variable/roboto-flex'
 	import '@fontsource-variable/roboto-mono'
+
 	import ChevronRight from '~icons/mdi/chevron-right'
 </script>
 
